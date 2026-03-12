@@ -1,43 +1,131 @@
-<!--Website created by 0xR3TR0. All rights reserved.-->  
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- meta tag's -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- styles -->
-    <link rel="stylesheet" href="Directories/style.css">
-
-    <!-- title -->
-    <title>To Do List</title>
-</head>
-<body>
-    <!-- main container -->
-    <div class="container">
-
-        <!-- to do list app -->
-        <div class="todo-app">
-
-            <!-- title -->
-            <h2>To-Do List <img src="Media & Images/icon.png"></h2>
-
-            <!-- task -->
-            <div class="row">
-                <input type="text" id="input-box" placeholder="Add your text">
-                <button onclick="addTask()">Add</button>
+<!doctype html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="TaskFlow — a modern, lightweight To-Do List app built with vanilla HTML, CSS and JavaScript."
+        />
+        <title>TaskFlow</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    </head>
+    <body>
+        <header class="app-header">
+            <div class="header-left">
+                <img
+                    src="assets/logo.svg"
+                    alt="TaskFlow logo"
+                    class="logo"
+                    width="32"
+                    height="32"
+                />
+                <h1>TaskFlow</h1>
             </div>
+            <button
+                id="theme-toggle"
+                class="icon-btn"
+                aria-label="Toggle dark mode"
+            >
+                <span class="theme-icon" aria-hidden="true"></span>
+            </button>
+        </header>
 
-            
-            <ul id="list-container">
-                <!-- <li class="checked">Task 1</li>
-                <li>Task 2</li>
-                <li>Task 3</li> -->
-            </ul>
-        </div>
-    </div>
+        <main class="app-main">
+            <!-- Add Task Panel -->
+            <section class="add-panel" aria-label="Add a new task">
+                <form id="task-form" autocomplete="off">
+                    <div class="input-row">
+                        <input
+                            type="text"
+                            id="task-title"
+                            placeholder="What needs to be done?"
+                            required
+                            maxlength="120"
+                            aria-label="Task title"
+                        />
+                        <select id="task-priority" aria-label="Priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                            id="add-btn"
+                        >
+                            Add
+                        </button>
+                    </div>
+                    <input
+                        type="text"
+                        id="task-desc"
+                        placeholder="Description (optional)"
+                        maxlength="300"
+                        aria-label="Task description"
+                    />
+                </form>
+            </section>
 
-    <!-- script -->
-    <script src="Directories/script.js"></script>
-</body>
+            <!-- Toolbar: Search, Filters, Sort -->
+            <section class="toolbar" aria-label="Filters and search">
+                <div class="search-box">
+                    <span class="search-icon" aria-hidden="true"
+                        >&#128269;</span
+                    >
+                    <input
+                        type="search"
+                        id="search-input"
+                        placeholder="Search tasks…"
+                        aria-label="Search tasks"
+                    />
+                </div>
+
+                <div
+                    class="filter-group"
+                    role="radiogroup"
+                    aria-label="Filter tasks"
+                >
+                    <button class="filter-btn active" data-filter="all">
+                        All
+                    </button>
+                    <button class="filter-btn" data-filter="active">
+                        Active
+                    </button>
+                    <button class="filter-btn" data-filter="completed">
+                        Completed
+                    </button>
+                </div>
+
+                <div class="sort-group">
+                    <label for="sort-select" class="sr-only">Sort by</label>
+                    <select id="sort-select" aria-label="Sort tasks">
+                        <option value="date-desc">Newest first</option>
+                        <option value="date-asc">Oldest first</option>
+                        <option value="priority-desc">Priority ↓</option>
+                        <option value="priority-asc">Priority ↑</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Task List -->
+            <section class="task-section" aria-label="Task list">
+                <ul id="task-list" class="task-list"></ul>
+                <p id="empty-state" class="empty-state hidden">
+                    No tasks yet — add one above!
+                </p>
+            </section>
+
+            <!-- Footer / Counter -->
+            <footer class="app-footer">
+                <span id="task-counter">0 tasks</span>
+                <button id="clear-completed" class="btn btn-ghost">
+                    Clear completed
+                </button>
+            </footer>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
 </html>

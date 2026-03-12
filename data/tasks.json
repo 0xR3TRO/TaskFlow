@@ -1,0 +1,42 @@
+[
+    {
+        "id": "sample001",
+        "title": "Review project requirements",
+        "description": "Go through the PRD and highlight unclear sections.",
+        "priority": "high",
+        "completed": false,
+        "createdAt": "2026-03-10T08:00:00.000Z"
+    },
+    {
+        "id": "sample002",
+        "title": "Set up development environment",
+        "description": "Install Node.js, VS Code extensions, and configure ESLint.",
+        "priority": "medium",
+        "completed": true,
+        "createdAt": "2026-03-09T14:30:00.000Z"
+    },
+    {
+        "id": "sample003",
+        "title": "Design landing page wireframe",
+        "description": "",
+        "priority": "medium",
+        "completed": false,
+        "createdAt": "2026-03-11T10:15:00.000Z"
+    },
+    {
+        "id": "sample004",
+        "title": "Write unit tests for auth module",
+        "description": "Cover login, logout, and token refresh flows.",
+        "priority": "high",
+        "completed": false,
+        "createdAt": "2026-03-11T16:00:00.000Z"
+    },
+    {
+        "id": "sample005",
+        "title": "Update README with setup instructions",
+        "description": "Add screenshots and a quick-start guide.",
+        "priority": "low",
+        "completed": false,
+        "createdAt": "2026-03-12T09:00:00.000Z"
+    }
+]
